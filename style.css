@@ -1,0 +1,185 @@
+:root {
+  --game-size-min: 200px;
+  --game-size-max: 500px;
+  --gap-size: 12px;
+  --lines-color: rgb(80, 80, 80);
+  --background-color: #232323;
+  --button-color: rgb(40, 40, 40);
+  --button-color-hover: rgb(50, 50, 50);
+  --button-color-active: rgb(60, 60, 60);
+  --cross-color: lightblue;
+  --circle-color: lightpink;
+
+  --name-text-color: #d98580;
+  --name-text-shadow-color: #da342b8e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  height: 100vh;
+
+  display: grid;
+  grid-template-rows: auto auto auto auto auto;
+  align-items: center;
+  text-align: center;
+  justify-items: center;
+}
+
+.main-container {
+  flex: 1;
+  min-width: var(--game-size-min);
+  max-width: var(--game-size-max);
+  min-height: var(--game-size-min);
+  max-height: var(--game-size-max);
+  width: 80vw;
+  height: 80vw;
+  display: grid;
+  grid-template-columns: 1fr var(--gap-size) 1fr var(--gap-size) 1fr;
+  grid-template-rows: 1fr var(--gap-size) 1fr var(--gap-size) 1fr;
+}
+
+.line {
+  background-color: var(--lines-color);
+}
+
+.full-line {
+  grid-column: 1/-1;
+  border-radius: 500px;
+}
+
+.upper-line {
+  border-radius: 500px 500px 0 0;
+}
+
+.bottom-line {
+  border-radius: 0 0 500px 500px;
+}
+
+.game-button {
+  border: none;
+  transition: background-color 0.15s ease-in;
+  background-color: transparent;
+}
+
+.game-button:nth-of-type(1) {
+  border-radius: 10px 10px 0 10px;
+}
+
+.game-button:nth-of-type(2) {
+  border-radius: 10px 10px 0 0;
+}
+
+.game-button:nth-of-type(3) {
+  border-radius: 10px 10px 10px 0;
+}
+
+.game-button:nth-of-type(4) {
+  border-radius: 10px 0 0 10px;
+}
+
+.game-button:nth-of-type(6) {
+  border-radius: 0 10px 10px 0;
+}
+
+.game-button:nth-of-type(7) {
+  border-radius: 10px 0 10px 10px;
+}
+
+.game-button:nth-of-type(8) {
+  border-radius: 0 0 10px 10px;
+}
+
+.game-button:nth-of-type(9) {
+  border-radius: 0 10px 10px 10px;
+}
+
+.active-button {
+  background-color: var(--button-color);
+  cursor: pointer;
+}
+
+.active-button:hover {
+  background-color: var(--button-color-hover);
+}
+
+.disabled-button {
+  background-color: transparent;
+}
+
+.win-text {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 30px;
+  margin-top: 50px;
+}
+
+.hide {
+  display: none;
+  margin-top: 0;
+}
+
+.name-text {
+  color: var(--name-text-color);
+  font-size: 6rem;
+  font-weight: bold;
+
+  text-shadow: 5px 5px 0px var(--name-text-shadow-color);
+}
+
+.hide-display {
+  display: none !important;
+}
+
+.menu-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-btns button {
+  width: 220px;
+  height: 50px;
+}
+
+.menu-btns button,
+.restart-button {
+  background-color: rgb(209, 151, 42);
+  border: none;
+  border-radius: 6px;
+  font-size: 2rem;
+  padding: 8px 12px;
+  cursor: pointer;
+
+  transition: opacity 0.2s, border 0.2s;
+}
+
+.menu-btns button.selected {
+  border: 6px solid rgb(170, 221, 52);
+}
+
+.menu-btns .start-button {
+  background-color: rgb(170, 221, 52);
+}
+
+.menu-btns button:hover,
+.restart-button:hover {
+  opacity: 0.8;
+}
+
+.menu-btns button:active,
+.restart-button:active {
+  opacity: 0.6;
+}
